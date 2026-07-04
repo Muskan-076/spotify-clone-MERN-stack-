@@ -7,7 +7,7 @@ const PlayercontextProvider = (props) => {
     const seekBg = useRef();
     const seekBar = useRef();
 
-    // we'll create the state variables to manage the project state
+    /* we'll create the state variables to manage the project state */
 
     const [track, setTrack] = useState(songsData[0]);
     const [playStatus, setPlayStatus] = useState(false);
@@ -34,6 +34,7 @@ const PlayercontextProvider = (props) => {
     useEffect(() => {
         setTimeout(() => {
             audioRef.current.ontimeupdate = () => {
+                seekBar.current.style.width = (Math.floor(audioRef.current.currentTime/audioRef.current.duration*100))+"%";
 
                 setTime({
                     currentTime: {
@@ -49,7 +50,8 @@ const PlayercontextProvider = (props) => {
         }, 1000);
     }, [audioRef])
 
-const contextValue = {//whtever func aur state we'll create in this, we can access in any other component
+const contextValue = {
+    /* whtever func aur state we'll create in this, we can access in any other component */
     audioRef,
     seekBg,
     seekBar,

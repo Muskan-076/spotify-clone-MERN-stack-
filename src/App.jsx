@@ -14,7 +14,9 @@ const App = () => {
         <Display />
       </div>
       <Player />
-      <audio ref ={audioRef} src={track.file} preload="auto"></audio> // using this reference we can pause, play, change the track of audio file
+      <audio ref ={audioRef} src={track.file} preload="auto"></audio>
+      {/* using this reference we can pause, play, change the track of audio file */}
+      
     </div>
   )
 }
